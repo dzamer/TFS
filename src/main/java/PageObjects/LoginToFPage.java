@@ -9,12 +9,19 @@ public class LoginToFPage extends BasePage{
         super(driver);
     }
 
-    @FindBy()
-    private WebElement login;
+    @FindBy(id = "userNameInput")
+    private WebElement loginInput;
 
-    @FindBy()
-    private WebElement password;
+    @FindBy(id = "passwordInput")
+    private WebElement passwordInput;
 
-    @FindBy()
+    @FindBy(id = "submitButton")
     private WebElement signInBtn;
+
+    public HomePage loginToFTFS(String loginEmail, String password){
+        waitForInputAndSendKeys(loginInput, loginEmail);
+        passwordInput.sendKeys(password);
+        signInBtn.click();
+        return new HomePage(getDriver());
+    }
 }

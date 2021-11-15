@@ -31,4 +31,8 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(
                 button)).click();
     }
+    public void waitForInputAndSendKeys(WebElement input, String keysToSend){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(
+                input)).sendKeys(keysToSend);
+    }
 }
