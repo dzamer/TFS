@@ -35,4 +35,9 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(
                 input)).sendKeys(keysToSend);
     }
+
+    public void waitForElementToBeVisible(WebElement input){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfAllElements(
+                input));
+    }
 }
